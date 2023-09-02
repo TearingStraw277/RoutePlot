@@ -27,28 +27,34 @@ def Input():
         print("Please enter a 1, 2 or 3 to choose a route or type STOP to end program")
 
 def path(data):
+    coords = []
     x = int(data[0])
     y = int(data[1])
     print("start, x="+str(x)+". y="+str(y))
     for i in range(len(data)):
         if (0<x<13) and (0<y<13):
             if data[i] == "N":
-                y +=1
+                y+=1
+                coords.append(y)
                 print("Coords are "+str(x)+","+str(y)+" when i is "+str(i))
             if data[i] == "S":
-                y -=1
+                y-=1
+                coords.append(y)
                 print("Coords are "+str(x)+","+str(y)+" when i is "+str(i))
             if data[i] == "E":
-                x +=1
+                x+=1
+                coords.append(x)
                 print("Coords are "+str(x)+","+str(y)+" when i is "+str(i))
             if data[i] == "W":
-                x -=1
+                x-=1
+                coords.append(x)
                 print("Coords are "+str(x)+","+str(y)+" when i is "+str(i))
         else:
             print("Error in file")
             break
+    print(coords)
 
-build_grid()
+#build_grid()
 
-#while True:
-    #Input()
+while True:
+    Input()
