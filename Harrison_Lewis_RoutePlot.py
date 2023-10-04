@@ -14,10 +14,10 @@ def build_grid(coords):
             ["  |","1 |","2 |","3 |","4 |","5 |","6 |","7 |","8 |","9 |","10|","11|","12|"],
     ]
 
-    print(*grid,sep="\n")
-
-    for i in range(0,len(coords),2):
+    for i in range(0,len(coords)):
+        print(coords[i])
         grid[coords[i]][coords[i+1]]="* |"
+    print(*grid,sep="\n")
 
 def get_data(file):
     with open('Route00'+file+'.txt','rt') as lines:
@@ -39,37 +39,36 @@ def Input():
 
 def path(data):
     coords = []
-    loc = []
     x = int(data[0])
     y = int(data[1])
-    coords.append(x)
     coords.append(y)
+    coords.append(x)
     print("start, x="+str(x)+". y="+str(y))
     for i in range(len(data)):
         if (0<x<13) and (0<y<13):
             if data[i] == "N":
                 y+=1
-                coords.append(x)
                 coords.append(y)
+                coords.append(x)
                 #print("Coords are "+str(x)+","+str(y)+" when i is "+str(i))
             if data[i] == "S":
                 y-=1
-                coords.append(x)
                 coords.append(y)
+                coords.append(x)
                 #print("Coords are "+str(x)+","+str(y)+" when i is "+str(i))
             if data[i] == "E":
                 x+=1
-                coords.append(x)
                 coords.append(y)
+                coords.append(x)
                 #print("Coords are "+str(x)+","+str(y)+" when i is "+str(i))
             if data[i] == "W":
                 x-=1
-                coords.append(x)
                 coords.append(y)
+                coords.append(x)
                 #print("Coords are "+str(x)+","+str(y)+" when i is "+str(i))
         else:
             print("Error in file")
-            break
+            Input()
     build_grid(coords)
 
 while True:
