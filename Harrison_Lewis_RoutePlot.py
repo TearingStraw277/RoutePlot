@@ -14,9 +14,10 @@ def build_grid(coords):
             ["  |","1 |","2 |","3 |","4 |","5 |","6 |","7 |","8 |","9 |","10|","11|","12|"],
     ]
 
-    for i in range(0,len(coords)):
-        print(coords[i])
-        grid[coords[i]][coords[i+1]]="* |"
+    for i in range(0,len(coords)-1,2):
+        grid[coords[i]-12][coords[i+1]] = "* |"
+        #print(coords[i]-12)
+        #print(coords[i+1])
     print(*grid,sep="\n")
 
 def get_data(file):
