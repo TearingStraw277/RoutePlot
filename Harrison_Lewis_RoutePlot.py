@@ -13,12 +13,42 @@ def build_grid(coords):
             ["1 |","  |","  |","  |","  |","  |","  |","  |","  |","  |","  |","  |","  |"],
             ["  |","1 |","2 |","3 |","4 |","5 |","6 |","7 |","8 |","9 |","10|","11|","12|"],
     ]
+    #need to loop through building grid and improve look?
+
+    for i in range(0,len(coords),2):
+        if coords[i]==12:
+            coords[i]-=12
+        elif coords[i]==11:
+            coords[i]-=10
+        elif coords[i]==10:
+            coords[i]-=8
+        elif coords[i]==9:
+            coords[i]-=6
+        elif coords[i]==8:
+            coords[i]-=4
+        elif coords[i]==7:
+            coords[i]-=2
+        elif coords[i]==6:
+            coords[i]-=0
+        elif coords[i]==5:
+            coords[i]+=2
+        elif coords[i]==4:
+            coords[i]+=4
+        elif coords[i]==3:
+            coords[i]+=6
+        elif coords[i]==2:
+            coords[i]+=8
+        elif coords[i]==1:
+            coords[i]+=10
 
     for i in range(0,len(coords)-1,2):
-        grid[coords[i]-12][coords[i+1]] = "* |"
-        #print(coords[i]-12)
-        #print(coords[i+1])
+        grid[coords[i]][coords[i+1]] = "* |"
     print(*grid,sep="\n")
+    print("Coordinates")
+    for i in range(0,len(coords)-1):
+        print(f"({coords[i+1]},{coords[i]+12})")
+    #Need to fix coords variable
+
 
 def get_data(file):
     with open('Route00'+file+'.txt','rt') as lines:
