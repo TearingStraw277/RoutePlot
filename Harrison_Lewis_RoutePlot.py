@@ -26,7 +26,6 @@ def build_grid(coords):
             ["  |","1 |","2 |","3 |","4 |","5 |","6 |","7 |","8 |","9 |","10|","11|","12|"]#24
     ]
     #need to loop through building grid
-
     coords_copy = coords.copy()
     for i in range(0,len(coords_copy),2):
         if coords_copy[i]==12:
@@ -51,13 +50,10 @@ def build_grid(coords):
             coords_copy[i]=20
         elif coords_copy[i]==1:
             coords_copy[i]=22
-
     for i in range(0,len(coords_copy)-1,2):
         grid[coords_copy[i]][coords_copy[i+1]] = "* |"
-
     for row in grid:
         print(*row)
-
     print("Coordinates")
     for i in range(0,len(coords)-1):
         print(f"({coords[i+1]},{coords[i]})")
