@@ -58,24 +58,6 @@ def build_grid(coords):
     for i in range(0,len(coords)-1):
         print(f"({coords[i+1]},{coords[i]})")
 
-def get_data(file):
-    with open('Route00'+file+'.txt','rt') as lines:
-        data = []
-        for line in lines:
-            line = line.strip()
-            data.append(line)
-    path(data)
-
-def Input():
-    User_Input=str(input("Enter which route you wish to use or STOP to end program: "))
-    if User_Input.upper() == "STOP":
-        print("The program will now end.")
-        exit()
-    elif User_Input == "1" or User_Input == "2" or User_Input == "3":
-        get_data(User_Input)
-    else:
-        print("Please enter a 1, 2 or 3 to choose a route or type STOP to end program")
-
 def path(data):
     coords = []
     x = int(data[0])
@@ -104,6 +86,24 @@ def path(data):
             print("Error in file")
             Input()
     build_grid(coords)
+
+def get_data(file):
+    with open('Route00'+file+'.txt','rt') as lines:
+        data = []
+        for line in lines:
+            line = line.strip()
+            data.append(line)
+    path(data)
+
+def Input():
+    User_Input=str(input("Enter which route you wish to use or STOP to end program: "))
+    if User_Input.upper() == "STOP":
+        print("The program will now end.")
+        exit()
+    elif User_Input == "1" or User_Input == "2" or User_Input == "3":
+        get_data(User_Input)
+    else:
+        print("Please enter a 1, 2 or 3 to choose a route or type STOP to end program")
 
 while True:
     Input()
