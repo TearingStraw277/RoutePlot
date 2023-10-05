@@ -55,7 +55,7 @@ def build_grid(coords):
     for row in grid:
         print(*row)
     print("Coordinates")
-    for i in range(0,len(coords)-1):
+    for i in range(0,len(coords)-1,2):
         print(f"({coords[i+1]},{coords[i]})")
 
 def path(data):
