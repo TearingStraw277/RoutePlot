@@ -104,6 +104,7 @@ def Input():
         get_data(User_Input)
     else:
         print("Please enter a 1, 2 or 3 to choose a route or type STOP to end program")
+        Input()
 
 while True:
     Input()
